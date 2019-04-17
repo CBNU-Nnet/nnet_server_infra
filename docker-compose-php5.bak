@@ -2,7 +2,7 @@ version: '3'
 services:
   nginx:
     build:
-      context: ../nnet_server_source/nnet-nginx/
+      context: ./nnet-nginx/
     restart: always
     image: seansin/nnet-nginx:0.1.2
     depends_on:
@@ -22,9 +22,9 @@ services:
       - 80:80
   app:
     build:
-      context: ../nnet_server_source/nnet-app/
+      context: ./nnet-app/
     restart: always
-    image: seansin/nnet-app:latest
+    image: seansin/nnet-app:0.1.2
     environment:
       - XE_DBCONFIG_FILE=${XE_DBCONFIG_FILE}
       - DB_USER=${DB_USER}
