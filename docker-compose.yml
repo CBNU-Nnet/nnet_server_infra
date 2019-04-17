@@ -1,0 +1,52 @@
+version: '3'
+services:
+  nginx:
+    build:
+      context: ./nnet-nginx/
+    restart: always
+    image: seansin/nnet-nginx:0.1.2
+    depends_on:
+      - app
+    volumes:
+      - app:/var/www/html/zbxe:rw 
+      - /data/backup/files/attach:/var/www/html/zbxe/files/attach:rw
+      - /data/backup/files/site_design:/var/www/html/zbxe/files/site_design
+      - /data/backup/files/cache:/var/www/html/zbxe/files/cache
+      - /data/backup/files/cache1:/var/www/html/zbxe/files/cache1
+      - /data/backup/files/cache2:/var/www/html/zbxe/files/cache2
+      - /data/backup/files/thumbnails:/var/www/html/zbxe/files/thumbnails:rw
+      - php:/var/run/php
+      - log:/var/log/php
+    network_mode: "bridge"
+    ports:
+      - 80:80
+  app:
+    build:
+      context: ./nnet-app/
+    restart: always
+    image: seansin/nnet-app:0.1.2
+    environment:
+      - XE_DBCONFIG_FILE=${XE_DBCONFIG_FILE}
+      - DB_USER=${DB_USER}
+      - DB_PORT=${DB_PORT}
+      - DB_PASS=${DB_PASS}
+      - DB_NAME=${DB_NAME}
+    volumes:
+      - app:/var/www/html/zbxe:rw 
+      - /data/backup/files/attach:/var/www/html/zbxe/files/attach:rw
+      - /data/backup/files/site_design:/var/www/html/zbxe/files/site_design
+      - /data/backup/files/cache:/var/www/html/zbxe/files/cache 
+      - /data/backup/files/cache1:/var/www/html/zbxe/files/cache1
+      - /data/backup/files/cache2:/var/www/html/zbxe/files/cache2
+      - /data/backup/files/thumbnails:/var/www/html/zbxe/files/thumbnails:rw
+      - php:/var/run/php
+      - log:/var/log/php
+    # networks:
+    #   - dockernet
+volumes:
+  app:
+  php: 
+  log:
+# networks:
+#   dockernet:
+#     external: true
