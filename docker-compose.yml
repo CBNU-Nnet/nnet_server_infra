@@ -2,19 +2,19 @@ version: '3'
 services:
   nginx:
     build:
-      context: ../nnet_server_source/nnet-nginx/
+      context: ./nnet-nginx/
     restart: always
-    image: seansin/nnet-nginx:0.1.2
+    image: seansin/nnet-nginx:1.12.0
     depends_on:
       - app
     volumes:
       - app:/var/www/html/zbxe:rw 
-      - /data/backup/files/attach:/var/www/html/zbxe/files/attach:rw
-      - /data/backup/files/site_design:/var/www/html/zbxe/files/site_design
-      - /data/backup/files/cache:/var/www/html/zbxe/files/cache
-      - /data/backup/files/cache1:/var/www/html/zbxe/files/cache1
-      - /data/backup/files/cache2:/var/www/html/zbxe/files/cache2
-      - /data/backup/files/thumbnails:/var/www/html/zbxe/files/thumbnails:rw
+      - ../backup/attach:/var/www/html/zbxe/files/attach:rw
+      - ../backup/site_design:/var/www/html/zbxe/files/site_design
+      - ../backup/cache:/var/www/html/zbxe/files/cache
+      - ../backup/cache1:/var/www/html/zbxe/files/cache1
+      - ../backup/cache2:/var/www/html/zbxe/files/cache2
+      - ../backup/thumbnails:/var/www/html/zbxe/files/thumbnails:rw
       - php:/var/run/php
       - log:/var/log/php
     network_mode: "bridge"
@@ -22,9 +22,9 @@ services:
       - 80:80
   app:
     build:
-      context: ../nnet_server_source/nnet-app/
+      context: ./nnet-app-php7/
     restart: always
-    image: seansin/nnet-app:latest
+    image: seansin/nnet-app-php7:1.0.0
     environment:
       - XE_DBCONFIG_FILE=${XE_DBCONFIG_FILE}
       - DB_USER=${DB_USER}
@@ -33,12 +33,12 @@ services:
       - DB_NAME=${DB_NAME}
     volumes:
       - app:/var/www/html/zbxe:rw 
-      - /data/backup/files/attach:/var/www/html/zbxe/files/attach:rw
-      - /data/backup/files/site_design:/var/www/html/zbxe/files/site_design
-      - /data/backup/files/cache:/var/www/html/zbxe/files/cache 
-      - /data/backup/files/cache1:/var/www/html/zbxe/files/cache1
-      - /data/backup/files/cache2:/var/www/html/zbxe/files/cache2
-      - /data/backup/files/thumbnails:/var/www/html/zbxe/files/thumbnails:rw
+      - ../backup/attach:/var/www/html/zbxe/files/attach:rw
+      - ../backup/site_design:/var/www/html/zbxe/files/site_design
+      - ../backup/cache:/var/www/html/zbxe/files/cache 
+      - ../backup/cache1:/var/www/html/zbxe/files/cache1
+      - ../backup/cache2:/var/www/html/zbxe/files/cache2
+      - ../backup/thumbnails:/var/www/html/zbxe/files/thumbnails:rw
       - php:/var/run/php
       - log:/var/log/php
     # networks:

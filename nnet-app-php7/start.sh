@@ -1,4 +1,5 @@
 #!/bin/bash
+
 #get host ip
 #HOST_IP=`hostname -I | awk '{print $1}'`
 HOST_IP=`/sbin/ip route|awk '/default/ { print $3 }'`
@@ -16,7 +17,7 @@ else
 fi
 
 # run service
-/usr/sbin/service php5.6-fpm start
+/usr/sbin/service php7.0-fpm start
 echo 'start.sh run!'
 # print logs
 tail -f /dev/stderr
