@@ -24,7 +24,7 @@ services:
     build:
       context: ./nnet-app-php7/
     restart: always
-    image: seansin/nnet-app-php7:1.0.0
+    image: seansin/nnet-app-php7:latest
     environment:
       - XE_DBCONFIG_FILE=${XE_DBCONFIG_FILE}
       - DB_USER=${DB_USER}
