@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#get host ip
-#HOST_IP=`hostname -I | awk '{print $1}'`
 HOST_IP=`/sbin/ip route|awk '/default/ { print $3 }'`
 echo "$HOST_IP"
 
