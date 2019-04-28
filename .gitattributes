@@ -13,7 +13,12 @@
  
 *.docx   diff=astextplain
 *.DOCX   diff=astextplain
- 
+
+# Shell scripts
+*.sh eol=lf
+configure eol=lf
+configure.ac eol=lf
+
 # absolute paths are ok, as are globs
 /**/postinst* text eol-lf
  
