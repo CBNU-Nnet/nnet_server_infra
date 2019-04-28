@@ -13,7 +13,7 @@ http://nnet.cbnu.ac.kr docker &amp; terraform infrastructure
  **사용법**
   + git clone 후 빌드할 이미지가 있는 폴더로 이동. (ex cd nginx)
   ```bash
-    docker build --no-cache --force-rm=true -t seansin/{nginx/php5-fpm/ubuntu}:latest .
+    docker build --no-cache --force-rm=true -t seansin/{nnet-nginx/nnet-app-php5/nnet-app-php7}:latest .
   ```
  **Related Works**
  
