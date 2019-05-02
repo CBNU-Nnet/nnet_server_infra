@@ -17,5 +17,6 @@ ADD custom.ini /etc/php/7.0/fpm/conf.d/99-php-custom.ini
 VOLUME /var/www/html/zbxe
 
 COPY start.sh /usr/local/bin/
-RUN ln -s /usr/local/bin/start.sh /start.sh
+RUN chmod +x /usr/local/bin/start.sh && \
+    ln -s /usr/local/bin/start.sh start.sh
 CMD ["start.sh"]
