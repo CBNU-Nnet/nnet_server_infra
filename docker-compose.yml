@@ -9,12 +9,12 @@ services:
       - app
     volumes:
       - app:/var/www/html/zbxe:rw 
-      - ../backup/attach:/var/www/html/zbxe/files/attach:rw
-      - ../backup/site_design:/var/www/html/zbxe/files/site_design
-      - ../backup/cache:/var/www/html/zbxe/files/cache
-      - ../backup/cache1:/var/www/html/zbxe/files/cache1
-      - ../backup/cache2:/var/www/html/zbxe/files/cache2
-      - ../backup/thumbnails:/var/www/html/zbxe/files/thumbnails:rw
+      - //d/data/backup/attach:/var/www/html/zbxe/files/attach:rw
+      - //d/data/backup/site_design:/var/www/html/zbxe/files/site_design
+      - //d/data/backup/cache:/var/www/html/zbxe/files/cache
+      - //d/data/backup/cache1:/var/www/html/zbxe/files/cache1
+      - //d/data/backup/cache2:/var/www/html/zbxe/files/cache2
+      - //d/data/backup/thumbnails:/var/www/html/zbxe/files/thumbnails:rw
       - php:/var/run/php
       - log:/var/log/php
     network_mode: "bridge"
@@ -33,20 +33,15 @@ services:
       - DB_NAME=${DB_NAME}
     volumes:
       - app:/var/www/html/zbxe:rw 
-      - ../backup/attach:/var/www/html/zbxe/files/attach:rw
-      - ../backup/site_design:/var/www/html/zbxe/files/site_design
-      - ../backup/cache:/var/www/html/zbxe/files/cache 
-      - ../backup/cache1:/var/www/html/zbxe/files/cache1
-      - ../backup/cache2:/var/www/html/zbxe/files/cache2
-      - ../backup/thumbnails:/var/www/html/zbxe/files/thumbnails:rw
+      - //d/data/backup/attach:/var/www/html/zbxe/files/attach:rw
+      - //d/data/backup/site_design:/var/www/html/zbxe/files/site_design
+      - //d/data/backup/cache:/var/www/html/zbxe/files/cache 
+      - //d/data/backup/cache1:/var/www/html/zbxe/files/cache1
+      - //d/data/backup/cache2:/var/www/html/zbxe/files/cache2
+      - //d/data/backup/thumbnails:/var/www/html/zbxe/files/thumbnails:rw
       - php:/var/run/php
       - log:/var/log/php
-    # networks:
-    #   - dockernet
 volumes:
   app:
   php: 
   log:
-# networks:
-#   dockernet:
-#     external: true
