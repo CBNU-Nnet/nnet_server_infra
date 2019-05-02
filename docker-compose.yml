@@ -12,13 +12,6 @@ services:
       - /d/data/backup:/var/www/html/zbxe/files:rw
       - php:/var/run/php
       - log:/var/log/php
-      # - //d/data/backup/attach:/var/www/html/zbxe/files/attach:rw
-      # - //d/data/backup/site_design:/var/www/html/zbxe/files/site_design
-      # - //d/data/backup/cache:/var/www/html/zbxe/files/cache
-      # - //d/data/backup/cache1:/var/www/html/zbxe/files/cache1
-      # - //d/data/backup/cache2:/var/www/html/zbxe/files/cache2
-      # - //d/data/backup/thumbnails:/var/www/html/zbxe/files/thumbnails:rw
-     
     network_mode: "bridge"
     ports:
       - 80:80
@@ -38,13 +31,6 @@ services:
       - /d/data/backup:/var/www/html/zbxe/files:rw
       - php:/var/run/php
       - log:/var/log/php 
-      # - //d/data/backup/attach:/var/www/html/zbxe/files/attach:rw
-      # - //d/data/backup/site_design:/var/www/html/zbxe/files/site_design:rw
-      # - //d/data/backup/cache:/var/www/html/zbxe/files/cache :rw
-      # - //d/data/backup/cache1:/var/www/html/zbxe/files/cache1:rw
-      # - //d/data/backup/cache2:/var/www/html/zbxe/files/cache2:rw
-      # - //d/data/backup/thumbnails:/var/www/html/zbxe/files/thumbnails:rw
-      
 volumes:
   app:
   php: 
