@@ -1,6 +1,8 @@
 # Auto detect text files and perform LF normalization
 *        text=auto
- 
+
+*.txt binary
+
 *.cs     text diff=csharp
 *.java   text diff=java
 *.html   text diff=html
@@ -14,10 +16,16 @@
 *.docx   diff=astextplain
 *.DOCX   diff=astextplain
 
+*.bak text
+
 # Shell scripts
 *.sh eol=lf
 configure eol=lf
 configure.ac eol=lf
+
+# *.ini & *.conf file
+*.ini eol=lf
+*.conf eol=lf
 
 # absolute paths are ok, as are globs
 /**/postinst* text eol-lf
