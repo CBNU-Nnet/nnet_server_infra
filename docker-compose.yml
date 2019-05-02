@@ -8,18 +8,8 @@ services:
     depends_on:
       - app
     volumes:
-<<<<<<< HEAD
       - app:/var/www/html/zbxe:rw
       - /d/data/backup:/var/www/html/zbxe/files:rw
-=======
-      - app:/var/www/html/zbxe:rw 
-      - //d/data/backup/attach:/var/www/html/zbxe/files/attach:rw
-      - //d/data/backup/site_design:/var/www/html/zbxe/files/site_design
-      - //d/data/backup/cache:/var/www/html/zbxe/files/cache
-      - //d/data/backup/cache1:/var/www/html/zbxe/files/cache1
-      - //d/data/backup/cache2:/var/www/html/zbxe/files/cache2
-      - //d/data/backup/thumbnails:/var/www/html/zbxe/files/thumbnails:rw
->>>>>>> f18b885c72b6ea5741468338b01ce1b4aaf24735
       - php:/var/run/php
       - log:/var/log/php
     network_mode: "bridge"
@@ -37,22 +27,10 @@ services:
       - DB_PASS=${DB_PASS}
       - DB_NAME=${DB_NAME}
     volumes:
-<<<<<<< HEAD
       - app:/var/www/html/zbxe:rw
       - /d/data/backup:/var/www/html/zbxe/files:rw
       - php:/var/run/php
       - log:/var/log/php 
-=======
-      - app:/var/www/html/zbxe:rw 
-      - //d/data/backup/attach:/var/www/html/zbxe/files/attach:rw
-      - //d/data/backup/site_design:/var/www/html/zbxe/files/site_design
-      - //d/data/backup/cache:/var/www/html/zbxe/files/cache 
-      - //d/data/backup/cache1:/var/www/html/zbxe/files/cache1
-      - //d/data/backup/cache2:/var/www/html/zbxe/files/cache2
-      - //d/data/backup/thumbnails:/var/www/html/zbxe/files/thumbnails:rw
-      - php:/var/run/php
-      - log:/var/log/php
->>>>>>> f18b885c72b6ea5741468338b01ce1b4aaf24735
 volumes:
   app:
   php: 
