@@ -1,6 +1,5 @@
 # nnet_server_infra
-http://nnet.cbnu.ac.kr docker &amp; terraform infrastructure
-
+http://nnet.cbnu.ac.kr docker
 
 **Nest.net 도커 이미지 저장소**
 
